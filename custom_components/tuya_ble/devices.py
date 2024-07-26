@@ -222,7 +222,7 @@ devices_database: dict[str, TuyaBLECategoryInfo] = {
                 [
                     "blliqpsj",
                     "ndvkgsrm",
-                    "yiihr7zh", 
+                    "yiihr7zh",
                     "neq16kgd"
                 ],  # device product_ids
                 TuyaBLEProductInfo(
@@ -268,10 +268,10 @@ devices_database: dict[str, TuyaBLECategoryInfo] = {
         products={
             **dict.fromkeys(
             [
-            "drlajpqc", 
+            "drlajpqc",
             "nhj2j7su",
             ],  # device product_id
-            TuyaBLEProductInfo(  
+            TuyaBLEProductInfo(
                 name="Thermostatic Radiator Valve",
                 ),
             ),
@@ -281,6 +281,9 @@ devices_database: dict[str, TuyaBLECategoryInfo] = {
         products={
             "ojzlzzsw": TuyaBLEProductInfo(  # device product_id
                 name="Soil moisture sensor",
+            ),
+            "zqeaw7pi": TuyaBLEProductInfo(  # device product_id
+                name="Temperature and humidity sensor",
             ),
         },
     ),
@@ -296,10 +299,10 @@ devices_database: dict[str, TuyaBLECategoryInfo] = {
         products={
             **dict.fromkeys(
                 [
-                "6pahkcau", 
+                "6pahkcau",
                 "hfgdqhho",
                 ],  # device product_id
-                TuyaBLEProductInfo( 
+                TuyaBLEProductInfo(
                     name="Irrigation computer",
                 ),
             ),

@@ -91,7 +91,7 @@ def set_fingerbot_program_repeat_forever(
         datapoint = self._device.datapoints[product.fingerbot.program]
         if datapoint and type(datapoint.value) is bytes:
             new_value = (
-                int.to_bytes(0xFFFF if value else 1, 2, "big") + 
+                int.to_bytes(0xFFFF if value else 1, 2, "big") +
                 datapoint.value[2:]
             )
             self._hass.create_task(datapoint.set_value(new_value))
@@ -303,6 +303,17 @@ mapping: dict[str, TuyaBLECategorySwitchMapping] = {
     "wsdcg": TuyaBLECategorySwitchMapping(
         products={
             "ojzlzzsw": [  # Soil moisture sensor
+                TuyaBLESwitchMapping(
+                    dp_id=21,
+                    description=SwitchEntityDescription(
+                        key="switch",
+                        icon="mdi:thermometer",
+                        entity_category=EntityCategory.CONFIG,
+                        entity_registry_enabled_default=False,
+                    ),
+                ),
+            ],
+            "zqeaw7pi": [  # temperature/humidity sensor
                 TuyaBLESwitchMapping(
                     dp_id=21,
                     description=SwitchEntityDescription(
