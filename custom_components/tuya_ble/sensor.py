@@ -176,7 +176,7 @@ mapping: dict[str, TuyaBLECategorySensorMapping] = {
                 [
                     "blliqpsj",
                     "ndvkgsrm",
-                    "yiihr7zh", 
+                    "yiihr7zh",
                     "neq16kgd"
                 ],  # Fingerbot Plus
                 [
@@ -202,6 +202,41 @@ mapping: dict[str, TuyaBLECategorySensorMapping] = {
     "wsdcg": TuyaBLECategorySensorMapping(
         products={
             "ojzlzzsw": [  # Soil moisture sensor
+                TuyaBLETemperatureMapping(
+                    dp_id=1,
+                    coefficient=10.0,
+                ),
+                TuyaBLESensorMapping(
+                    dp_id=2,
+                    description=SensorEntityDescription(
+                        key="moisture",
+                        device_class=SensorDeviceClass.MOISTURE,
+                        native_unit_of_measurement=PERCENTAGE,
+                        state_class=SensorStateClass.MEASUREMENT,
+                    ),
+                ),
+                TuyaBLESensorMapping(
+                    dp_id=3,
+                    description=SensorEntityDescription(
+                        key="battery_state",
+                        icon="mdi:battery",
+                        device_class=SensorDeviceClass.ENUM,
+                        entity_category=EntityCategory.DIAGNOSTIC,
+                        options=[
+                            BATTERY_STATE_LOW,
+                            BATTERY_STATE_NORMAL,
+                            BATTERY_STATE_HIGH,
+                        ],
+                    ),
+                    icons=[
+                        "mdi:battery-alert",
+                        "mdi:battery-50",
+                        "mdi:battery-check",
+                    ],
+                ),
+                TuyaBLEBatteryMapping(dp_id=4),
+            ],
+            "zqeaw7pi": [  # Bluetooth temperature/humidity sensor
                 TuyaBLETemperatureMapping(
                     dp_id=1,
                     coefficient=10.0,
